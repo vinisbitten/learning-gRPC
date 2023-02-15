@@ -1,0 +1,4 @@
+*.sqlite
+go.mod
+go.sum
+pb

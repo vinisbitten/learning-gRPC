@@ -10,6 +10,8 @@ import (
 	"github.com/vinisbitten/learning-gRPC/internal/service"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
