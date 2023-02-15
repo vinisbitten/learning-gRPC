@@ -6,6 +6,17 @@
 
 A modern open-source **RPC framework** which delivers high performance and efficiency in any environment. It supports both typical request/response interactions and long-running **streaming communications**.
 
+This article will show you how to create a gRPC server in Go.
+
+After reading this article, you will be able to:
+
+* Understand what gRPC is and how it works
+* Undesrtand protobuf and how it works
+* Create a gRPC server
+* Use Evans to make calls and test the gRPC server
+
+<br>
+
 **table of contents:**
 
 > <details>
@@ -48,16 +59,7 @@ A modern open-source **RPC framework** which delivers high performance and effic
 >   * [Run](#Run)
 >   * [Info](#Info)
 
-
-
-This article will show you how to create a gRPC server in Go.
-
-After reading this article, you will be able to:
-
-* Understand what gRPC is and how it works
-* Undesrtand protobuf and how it works
-* Create a gRPC server
-* Use Evans to make calls and test the gRPC server
+<br>
 
 ---
 
