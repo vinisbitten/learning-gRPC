@@ -71,7 +71,7 @@ gRPC supports four types of RPCs:
 
     A single request and a single response. The most common type of RPC.
 
-* <h3 id="Server-streaming">Server streaming: </h3>
+* <h3 id="Server-streaming">Server streaming</h3>
 
     A single request and a stream of responses. The server sends a stream of responses to the client.
 
