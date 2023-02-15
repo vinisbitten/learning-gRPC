@@ -2,19 +2,12 @@
     <img alt="gRPC-banner" src="src/grpc-banner.png" height="200"/>
 </div>
 
+---
+
 A modern open-source **RPC framework** which delivers high performance and efficiency in any environment. It supports both typical request/response interactions and long-running **streaming communications**.
 
-This article will show you how to create a gRPC server in Go.
+**table of contents:**
 
-After reading this article, you will be able to:
-
-* Understand what gRPC is and how it works
-* Undesrtand protobuf and how it works
-* Create a gRPC server
-* Use Evans to make calls and test the gRPC server
-
-> **table of contents**
->
 > <details>
 >
 > <summary>Types of gRPC</summary>
@@ -54,40 +47,51 @@ After reading this article, you will be able to:
 >   * [Database](#Database)
 >   * [Run](#Run)
 >   * [Info](#Info)
->
-><br>
->
-## Types of gRPC
+
+
+
+This article will show you how to create a gRPC server in Go.
+
+After reading this article, you will be able to:
+
+* Understand what gRPC is and how it works
+* Undesrtand protobuf and how it works
+* Create a gRPC server
+* Use Evans to make calls and test the gRPC server
+
+---
+
+# Types of gRPC
 
 gRPC supports four types of RPCs:
 
-<h3 id="Unary">Unary</h3>
+* <h3 id="Unary">Unary</h3>
 
-A **single request** and a **single response**. The most common type of RPC.
+    A single request and a single response. The most common type of RPC.
 
-<h3 id="Server-streaming">Server streaming</h3>
+* <h3 id="Server-streaming">Server streaming: </h3>
 
-A **single request** and a **stream of responses**. The server sends a stream of responses to the client.
+    A single request and a stream of responses. The server sends a stream of responses to the client.
 
-<h3 id="Client-streaming">client streaming</h3>
+* <h3 id="Client-streaming">Client streaming</h3>
 
-A **stream of requests** and a **single response**. The client sends a stream of requests to the server.
+    A stream of requests and a single response. The client sends a stream of requests to the server.
 
-<h3 id="Bidirectional-streaming">Bidirectional streaming</h3>
+* <h3 id="Bidirectional-streaming">Bidirectional streaming</h3>
 
-A stream of requests and a stream of responses. The client and server send a **stream** of messages **to each other**.
+    A stream of requests and a stream of responses. The client and server send a stream of messages to each other.
 
 ## Protocol buffers
 
 Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data.
 
-<h3 id="Overview">Overview</h3>
+* <h3 id="Overview">Overview</h3>
 
-gRPC uses [Protocol Buffers](https://developers.google.com/protocol-buffers) (Protobuf) as the Interface Definition Language (IDL) for describing both the service interface and the structure of the payload messages. The IDL is used to generate the gRPC client and server interfaces in your chosen language.
+    gRPC uses [Protocol Buffers](https://developers.google.com/protocol-buffers) (Protobuf) as the Interface Definition Language (IDL) for describing both the service interface and the structure of the payload messages. The IDL is used to generate the gRPC client and server interfaces in your chosen language.
 
-<h3 id="syntax">Syntax</h3>
+* <h3 id="syntax">Syntax</h3>
 
-The syntax for defining a service in a `.proto` file is as follows:
+    The syntax for defining a service in a `.proto` file is as follows:
 
 ```proto
 // Define the syntax of the proto file
@@ -134,13 +138,13 @@ service HelloService {
 
 Evans is a gRPC client for humans works via command line. It has two use modes: REPl and CLI. This repository example uses REPL mode.
 
-<h3 id="REPL">REPL</h3>
+* <h3 id="REPL">REPL</h3>
 
-You can use it without thinking like the package name, service name, RPC name, command usage, and so on because REPL mode has powerful completion!
+    You can use it without thinking like the package name, service name, RPC name, command usage, and so on because REPL mode has powerful completion!
 
-<h3 id="CLI">CLI</h3>
+* <h3 id="CLI">CLI</h3>
 
-CLI mode is a stateless mode just like [polyglot](https://github.com/grpc-ecosystem/polyglot). It sends one request per one command as its name suggests. So it is based on UNIX philosophy.
+    CLI mode is a stateless mode just like [polyglot](https://github.com/grpc-ecosystem/polyglot). It sends one request per one command as its name suggests. So it is based on UNIX philosophy.
 
 ## Hands-On
 
@@ -210,12 +214,15 @@ evans -r repl
 call [service name]
 ```
 
-<img alt="call-example" src="src/call-example.png"/>
+<div align="center">
+    <img alt="call-example" src="src/call-example.png"/>
+</div>
 
 <h3 id="info">Info</h3>
 
 * **YOU WILL HAVE TO READ THE CODE TO UNDERSTAND THE PROJECT**
 * The category proto service is implemented [here](/internal/server/category.go).
-* The proto files have to be generated in folder ```/internal/pb```, so the project can find them. We assure this in the proto file with the option ```option go_package = "internal/pb"```.
+* The proto files have to be generated in folder ```/internal/pb```, so the project can find them.
+* We assure this in the proto file with the option ```option go_package = "internal/pb"```.
 * The commands should be run from the root path of the project.
 * The database file is created in the root path of the project.
